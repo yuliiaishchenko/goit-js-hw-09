@@ -11,10 +11,7 @@ const flatpickrInput = document.querySelector('#datetime-picker');
 const startBtn = document.querySelector('[data-start-timer]');
 startBtn.disabled = true;
 
-flatpickr (flatpickrInput, options);
-
-
-const options = {
+flatpickr (flatpickrInput, {
     enableTime: true,
     time_24hr: true,
     defaultDate: new Date(),
@@ -24,14 +21,14 @@ const options = {
         alert("Please choose a date in the future");
      } else {
         startBtn.disabled = false;
-        const setTimer = ()=> {
+        const setTimer = () => {
             selectedDate = selectedDates[0].getTime();
             timer.start();
         };
         startBtn.addEventListener('click', setTimer);
      }},
     
-  };
+  });
 
   
   const timer = {
