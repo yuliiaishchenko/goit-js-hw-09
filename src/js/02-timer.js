@@ -9,7 +9,7 @@ let currentDate = null;
 
 const flatpickrInput = document.querySelector('#datetime-picker');
 const startBtn = document.querySelector('[data-start-timer]');
-startBtn.toggleAttribute('disabled');
+// startBtn.toggleAttribute('disabled');
 
 flatpickr (flatpickrInput, {
     enableTime: true,
