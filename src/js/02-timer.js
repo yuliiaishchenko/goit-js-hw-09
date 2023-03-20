@@ -2,11 +2,16 @@ import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 
 
-const flatpickerInput = document.querySelector('#datetime-picker');
+let intervalId = null;
+let selectedDate = null;
+let currentDate = null;
+
+
+const flatpickrInput = document.querySelector('#datetime-picker');
 const startBtn = document.querySelector('[data-start-timer]');
 startBtn.disabled = true;
 
-flatpickr (flatpickerInput, options);
+flatpickr (flatpickrInput, options);
 
 
 const options = {
@@ -34,7 +39,7 @@ const options = {
     start(){
         intervalId = setInterval(() => {
             startBtn.disabled = true;
-            flatpickerInput.disabled = true;
+            flatpickrInput.disabled = true;
             currentDate = Date.now();
             const delta = selectedDate - currentDate;
             if (delta <= 0) {
@@ -55,7 +60,7 @@ const options = {
         clearInterval(intervalId);
         this.intervalId = null;
         startBtn.disabled = true;
-        flatpickerInput.disabled = false;
+        flatpickrInput.disabled = false;
     }
   };
 
