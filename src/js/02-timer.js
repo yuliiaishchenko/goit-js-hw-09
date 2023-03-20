@@ -24,8 +24,8 @@ const options = {
             timer.start();
         };
         startBtn.addEventListener('click', setTimer);
-     }
-    },
+     }},
+    
   };
 
   
@@ -43,10 +43,10 @@ const options = {
             }
 
             const { days, hours, minutes, seconds } = this.convertMs(delta);
-            this.rootSelector.querySelector('[data-days]').textContent = this.addLeasingZero(days);
-            this.rootSelector.querySelector('[data-hours]').textContent = this.addLeasingZero(hours);
-            this.rootSelector.querySelector('[data-minutes]').textContent = this.addLeasingZero(minutes);
-            this.rootSelector.querySelector('[data-seconds]').textContent = this.addLeasingZero(seconds);
+            this.rootSelector.querySelector('[data-days]').textContent = this.addLeadingZero(days);
+            this.rootSelector.querySelector('[data-hours]').textContent = this.addLeadingZero(hours);
+            this.rootSelector.querySelector('[data-minutes]').textContent = this.addLeadingZero(minutes);
+            this.rootSelector.querySelector('[data-seconds]').textContent = this.addLeadingZero(seconds);
         }, 1000);
     },
 
@@ -68,16 +68,18 @@ const options = {
     const day = hour * 24;
   
     // Remaining days
-    const days = this.addLeasingZero(Math.floor(ms / day));
+    const days = this.addLeadingZero(Math.floor(ms / day));
     // Remaining hours
-    const hours = this.addLeasingZero(Math.floor((ms % day) / hour));
+    const hours = this.addLeadingZero(Math.floor((ms % day) / hour));
     // Remaining minutes
-    const minutes = this.addLeasingZero(Math.floor(((ms % day) % hour) / minute));
+    const minutes = this.addLeadingZero(Math.floor(((ms % day) % hour) / minute));
     // Remaining seconds
-    const seconds = this.addLeasingZero(Math.floor((((ms % day) % hour) % minute) / second));
+    const seconds = this.addLeadingZero(Math.floor((((ms % day) % hour) % minute) / second));
   
     return { days, hours, minutes, seconds };
  };
-  addLeasingZero(value){
-    return String(value).padStart(2,0);
+
+
+function addLeadingZero (value){
+    return String(value).padStart(2,0)
   };
