@@ -7,18 +7,26 @@ let selectedDate = null;
 let currentDate = null;
 
 
-const flatpickrInput = document.querySelector('#datetime-picker');
-const startBtn = document.querySelector('[data-start]');
-startBtn.toggleAttribute('disabled');
+const refs = {
+    dateInput: document.querySelector('input#datetime-picker'),
+    startBtn: document.querySelector('button[data-start]'),
+    daysRefs: document.querySelector('[data-days]'),
+    hoursRefs: document.querySelector('[data-hours]'),
+    minutesRefs: document.querySelector('[data-minutes]'),
+    secondsRefs: document.querySelector('[data-seconds]'),
+};
 
-flatpickr (flatpickrInput, {
+refs.startBtn.disabled = true;
+refs.startBtn.addEventListener('click', startTimer);
+
+const options = {
     enableTime: true,
     time_24hr: true,
     defaultDate: new Date(),
     minuteIncrement: 1,
     onClose(selectedDates) {
      if (selectedDates[0].getTime() < Date.now()){
-        alert("Please choose a date in the future");
+        Notify.failure("Please choose a date in the future");
      } else {
         startBtn.disabled = false;
         const setTimer = () => {
@@ -26,9 +34,9 @@ flatpickr (flatpickrInput, {
             timer.start();
         };
         startBtn.addEventListener('click', setTimer);
-     }},
-    
-  });
+     }},}
+
+flatpickr (flatpickrInput, options);
 
   
   const timer = {
@@ -39,16 +47,10 @@ flatpickr (flatpickrInput, {
             flatpickrInput.disabled = true;
             currentDate = Date.now();
             const delta = selectedDate - currentDate;
-            if (delta <= 0) {
+            updateTimer(convertMs(delta));
+            if (delta <= 1000) {
                 this.stop();
-                return;
             }
-
-            const { days, hours, minutes, seconds } = this.convertMs(delta);
-            this.rootSelector.querySelector('[data-days]').textContent = this.addLeadingZero(days);
-            this.rootSelector.querySelector('[data-hours]').textContent = this.addLeadingZero(hours);
-            this.rootSelector.querySelector('[data-minutes]').textContent = this.addLeadingZero(minutes);
-            this.rootSelector.querySelector('[data-seconds]').textContent = this.addLeadingZero(seconds);
         }, 1000);
     },
 
@@ -58,6 +60,7 @@ flatpickr (flatpickrInput, {
         this.intervalId = null;
         startBtn.disabled = true;
         flatpickrInput.disabled = false;
+        return;
     }
   };
 
@@ -70,17 +73,23 @@ flatpickr (flatpickrInput, {
     const day = hour * 24;
   
     // Remaining days
-    const days = this.addLeadingZero(Math.floor(ms / day));
+    const days = addLeadingZero(Math.floor(ms / day));
     // Remaining hours
-    const hours = this.addLeadingZero(Math.floor((ms % day) / hour));
+    const hours = addLeadingZero(Math.floor((ms % day) / hour));
     // Remaining minutes
-    const minutes = this.addLeadingZero(Math.floor(((ms % day) % hour) / minute));
+    const minutes = addLeadingZero(Math.floor(((ms % day) % hour) / minute));
     // Remaining seconds
-    const seconds = this.addLeadingZero(Math.floor((((ms % day) % hour) % minute) / second));
+    const seconds = addLeadingZero(Math.floor((((ms % day) % hour) % minute) / second));
   
     return { days, hours, minutes, seconds };
  };
 
+ function updateTimer ({days, hours, minutes, seconds}){
+    dataDays.textContent = `${days}`;
+    dataHours.textContent = `${hours}`;
+    dataMinutes.textContent = `${minutes}`;
+    dataSeconds.textContent = `${seconds}`;
+ }
 
 function addLeadingZero (value){
     return String(value).padStart(2,0)
