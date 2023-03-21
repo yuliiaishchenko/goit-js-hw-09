@@ -51,7 +51,7 @@ button{
 button[disabled]{
   color: rgb(107, 142, 247);
 }
-input#datetime-picker{
+input{
 border-radius: 15%;
 opacity: 0.5;
 border: none;
