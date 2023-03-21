@@ -49,7 +49,7 @@ flatpickr (refs.dateInput, options);
             refs.startBtn.disabled = true;
             refs.dateInput.disabled = true;
             currentDate = Date.now();
-            const delta = selectedDate - currentDate;
+            const delta = selectedDates - currentDate;
             updateTimer(convertMs(delta));
             if (delta <= 1000) {
                 this.stop();
