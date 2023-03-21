@@ -36,7 +36,7 @@ const options = {
         startBtn.addEventListener('click', setTimer);
      }},}
 
-flatpickr (flatpickrInput, options);
+flatpickr (dateInput, options);
 
   function startCounter(){
     timer.start()
