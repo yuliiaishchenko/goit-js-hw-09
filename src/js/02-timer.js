@@ -38,13 +38,16 @@ const options = {
 
 flatpickr (flatpickrInput, options);
 
+  function startCounter(){
+    timer.start()
+  };
   
   const timer = {
-    rootSelector: document.querySelector('.timer'),
+    
     start(){
         intervalId = setInterval(() => {
             startBtn.disabled = true;
-            flatpickrInput.disabled = true;
+            dateInput.disabled = true;
             currentDate = Date.now();
             const delta = selectedDate - currentDate;
             updateTimer(convertMs(delta));
@@ -57,9 +60,8 @@ flatpickr (flatpickrInput, options);
     stop(){
 
         clearInterval(intervalId);
-        this.intervalId = null;
         startBtn.disabled = true;
-        flatpickrInput.disabled = false;
+        dateInput.disabled = false;
         return;
     }
   };
