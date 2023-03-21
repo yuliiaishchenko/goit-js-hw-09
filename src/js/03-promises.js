@@ -1,5 +1,6 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
+document.body.style.backgroundImage = "url(https://png.pngtree.com/thumb_back/fh260/background/20200714/pngtree-modern-double-color-futuristic-neon-background-image_351866.jpg)";
 const refs = {
   body: document.querySelector('body'),
   form: document.querySelector('form.form'),
