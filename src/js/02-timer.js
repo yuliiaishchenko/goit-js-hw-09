@@ -8,7 +8,7 @@ let currentDate = null;
 
 
 const refs = {
-    dateInput: document.querySelector('input#datetime-picker'),
+    dateInput: document.querySelector('#datetime-picker'),
     startBtn: document.querySelector('button[data-start]'),
     daysRefs: document.querySelector('[data-days]'),
     hoursRefs: document.querySelector('[data-hours]'),
