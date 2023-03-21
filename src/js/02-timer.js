@@ -28,12 +28,12 @@ const options = {
      if (selectedDates[0].getTime() < Date.now()){
         Notify.failure("Please choose a date in the future");
      } else {
-        startBtn.disabled = false;
+        refs.startBtn.disabled = false;
         const setTimer = () => {
             selectedDate = selectedDates[0].getTime();
-            timer.start();
+            startCounter();
         };
-        startBtn.addEventListener('click', setTimer);
+        refs.startBtn.addEventListener('click', setTimer);
      }},}
 
 flatpickr (refs.dateInput, options);
@@ -46,8 +46,8 @@ flatpickr (refs.dateInput, options);
     
     start(){
         intervalId = setInterval(() => {
-            startBtn.disabled = true;
-            dateInput.disabled = true;
+            refs.startBtn.disabled = true;
+            refs.dateInput.disabled = true;
             currentDate = Date.now();
             const delta = selectedDate - currentDate;
             updateTimer(convertMs(delta));
@@ -60,8 +60,8 @@ flatpickr (refs.dateInput, options);
     stop(){
 
         clearInterval(intervalId);
-        startBtn.disabled = true;
-        dateInput.disabled = false;
+        refs.startBtn.disabled = true;
+        refs.dateInput.disabled = false;
         return;
     }
   };
@@ -87,10 +87,10 @@ flatpickr (refs.dateInput, options);
  };
 
  function updateTimer ({days, hours, minutes, seconds}){
-    dataDays.textContent = `${days}`;
-    dataHours.textContent = `${hours}`;
-    dataMinutes.textContent = `${minutes}`;
-    dataSeconds.textContent = `${seconds}`;
+    refs.dataDays.textContent = `${days}`;
+    refs.dataHours.textContent = `${hours}`;
+    refs.dataMinutes.textContent = `${minutes}`;
+    refs.dataSeconds.textContent = `${seconds}`;
  }
 
 function addLeadingZero (value){
