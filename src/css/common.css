@@ -45,11 +45,11 @@ img {
   border-radius: 50%;
   border: none;
   margin: 15px;
-  color:darkmagenta
+  color:rgb(81, 113, 210)
 }
 
 .button[disabled]{
-  color: darkorchid;
+  color: rgb(107, 142, 247);
 }
 .input#datetime-picker{
 border-radius: 15%;
