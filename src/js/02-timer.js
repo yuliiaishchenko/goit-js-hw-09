@@ -1,7 +1,7 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 
-
+document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1668293497947-be08490a3b71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDUzfEZ6bzN6dU9ITjZ3fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60')"
 let intervalId = null;
 let selectedDate = null;
 let currentDate = null;
