@@ -8,8 +8,8 @@ let currentDate = null;
 
 
 const refs = {
-    dateInput: document.querySelector('#datetime-picker'),
-    startBtn: document.querySelector('button[data-start]'),
+    dateInput: document.querySelector('input#datetime-picker'),
+    startBtn: document.querySelector('[data-start]'),
     daysRefs: document.querySelector('[data-days]'),
     hoursRefs: document.querySelector('[data-hours]'),
     minutesRefs: document.querySelector('[data-minutes]'),
@@ -36,7 +36,7 @@ const options = {
         startBtn.addEventListener('click', setTimer);
      }},}
 
-flatpickr (dateInput, options);
+flatpickr (refs.dateInput, options);
 
   function startCounter(){
     timer.start()
