@@ -17,7 +17,7 @@ const refs = {
 };
 
 refs.startBtn.disabled = true;
-refs.startBtn.addEventListener('click', startTimer);
+refs.startBtn.addEventListener('click', startCounter);
 
 const options = {
     enableTime: true,
@@ -41,7 +41,7 @@ flatpickr (flatpickrInput, options);
   function startCounter(){
     timer.start()
   };
-  
+
   const timer = {
     
     start(){
