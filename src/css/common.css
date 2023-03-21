@@ -38,7 +38,7 @@ img {
   justify-content: center;
   margin: 15px;
 }
-.button{
+button{
   display: inline-block;
   width: 50px;
   height: 50px;
@@ -48,7 +48,7 @@ img {
   color:rgb(81, 113, 210)
 }
 
-.button[disabled]{
+button[disabled]{
   color: rgb(107, 142, 247);
 }
 .input#datetime-picker{
