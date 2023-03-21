@@ -45,7 +45,8 @@ button{
   border-radius: 50%;
   border: none;
   margin: 15px;
-  color:rgb(81, 113, 210)
+  color:rgb(81, 113, 210);
+  opacity: 0,4;
 }
 
 button[disabled]{
@@ -55,4 +56,20 @@ input{
 border-radius: 15%;
 opacity: 0.5;
 border: none;
+}
+
+label.delay{
+  color: cornflowerblue;
+  font-size: larger;
+}
+label.step{
+  color: darkcyan;
+  font-size: larger;
+  font-style: oblique;
+}
+
+label.amount{
+  color: deeppink;
+  font-size: larger;
+  font-style: oblique;
 }
