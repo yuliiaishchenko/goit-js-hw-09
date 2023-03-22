@@ -7,13 +7,13 @@ document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-16
 const startBtn = document.querySelector("button[data-start]");
 startBtn.disabled = true;
 
-const dateInput = document.querySelector('#datetime-picker');
+const dateInput = document.querySelector("#datetime-picker");
 
 const refs = {
-    daysRefs: document.querySelector('[data-days]'),
-    hoursRefs: document.querySelector('[data-hours]'),
-    minutesRefs: document.querySelector('[data-minutes]'),
-    secondsRefs: document.querySelector('[data-seconds]'),
+    daysRefs: document.querySelector("[data-days]"),
+    hoursRefs: document.querySelector("[data-hours]"),
+    minutesRefs: document.querySelector("[data-minutes]"),
+    secondsRefs: document.querySelector("[data-seconds]"),
 };
 
 let timerId = null;
