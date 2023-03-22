@@ -3,9 +3,9 @@ import "flatpickr/dist/flatpickr.min.css";
 import { Notify } from "notiflix";
 
 document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1668293497947-be08490a3b71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDUzfEZ6bzN6dU9ITjZ3fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60')"
-let intervalId = null;
+let timerId = null;
 let timeDifferent = 0;
-let currentDate = null;
+let formatDate = null;
 
 
 const refs = {
@@ -36,7 +36,7 @@ flatpickr (refs.dateInput, options);
 refs.startBtn.addEventListener('click', onBtnStart);
 
   function onBtnStart(){
-   intervalId = setInterval(startTimer,1000);
+   timerId = setInterval(startTimer,1000);
   };
 
 
@@ -49,8 +49,8 @@ refs.startBtn.addEventListener('click', onBtnStart);
          refs.startBtn.removeAttribute('disabled');
        
              timeDifferent = selectedDates[0].getTime()- currentDates;
-             currentDate = convertMs(timeDifferent);
-         updateTimer(currentDate);
+             formatDate = convertMs(timeDifferent);
+         updateTimer(formatDate);
   }}
 
   function startTimer() {
@@ -64,14 +64,10 @@ if(refs.secondsRefs.textContent <=0 && refs.minutesRefs.textContent<=0){
   clearInterval(intervalId)
 }
 else{
-currentDate = convertMs(timeDifferent);
-renderDate(currentDate);
+formatDate = convertMs(timeDifferent);
+renderDate(formatDate);
 }
 }
-
-
-    
-
 
 
   function convertMs(ms) {
