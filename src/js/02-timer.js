@@ -48,7 +48,7 @@ refs.startBtn.addEventListener('click', onBtnStart);
       } else {
          
        
-             timeDifferent = selectedDates[0].getTime()- currentDate;
+             timeDifferent = selectedDates.getTime()- currentDate;
              formatDate = convertMs(timeDifferent);
              renderDate(formatDate);
              refs.startBtn.removeAttribute('disabled');
