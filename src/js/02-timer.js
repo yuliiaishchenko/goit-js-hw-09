@@ -43,7 +43,7 @@ flatpickr (dateInput, options);
 function changeTimerValue(){
 
   let timer = setInterval(()=> {
-    let countdown = new Date () - new Date();
+    let countdown = new Date (dateInput.value) - Date.now();
     startBtn.disabled = true;
     
     if(countdown>=0){
@@ -68,13 +68,13 @@ function changeTimerValue(){
     const day = hour * 24;
   
     // Remaining days
-    const days = addLeadingZero(Math.floor(ms / day));
+    const days = Math.floor(ms / day);
     // Remaining hours
-    const hours = addLeadingZero(Math.floor((ms % day) / hour));
+    const hours = Math.floor((ms % day) / hour);
     // Remaining minutes
-    const minutes = addLeadingZero(Math.floor(((ms % day) % hour) / minute));
+    const minutes = Math.floor(((ms % day) % hour) / minute);
     // Remaining seconds
-    const seconds = addLeadingZero(Math.floor((((ms % day) % hour) % minute) / second));
+    const seconds = Math.floor((((ms % day) % hour) % minute) / second);
   
     return { days, hours, minutes, seconds };
  };
