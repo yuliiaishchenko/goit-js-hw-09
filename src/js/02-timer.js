@@ -49,10 +49,10 @@ function changeTimerValue(){
     console.log(countdown)
     if(countdown>=0){
       let timerData = convertMs(countdown);
-      refs.days.textContent = timerData.days;
-      refs.hours.textContent = timerData.hours;
-      refs.minutes.textContent = timerData.minutes;
-      refs.seconds.textContent = timerData.seconds;
+      refs.daysRefs.textContent = timerData.days;
+      refs.hoursRefs.textContent = timerData.hours;
+      refs.minutesRefs.textContent = timerData.minutes;
+      refs.secondsRefs.textContent = timerData.seconds;
     }
     else{
       Notify.success('Time is over!')
