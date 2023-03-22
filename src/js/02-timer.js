@@ -7,7 +7,7 @@ document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-16
 const startBtn = document.querySelector("button[data-start]");
 startBtn.disabled = true;
 
-const dateInput = document.querySelector("#datetime-picker");
+const dateInput = document.querySelector("input#datetime-picker");
 
 const refs = {
     daysRefs: document.querySelector("[data-days]"),
@@ -26,15 +26,14 @@ const options = {
     defaultDate: new Date(),
     minuteIncrement: 1,
     onClose(selectedDates) {
-   console.log(selectedDates[0]);
-  console.log(new Date())
-if(selectedDates[0]< new Date()){
+   
+if(selectedDates[0]< Date.now()){
   startBtn.disabled = true;
   Notify.failure("Please choose a date in the future");
 } else{
   startBtn.disabled = false;
   startBtn.addEventListener('click', ()=>{
-    changeTimerValue(selectedDates[0])
+    changeTimerValue(dateInput.value)
   })
 }},
     };
@@ -44,9 +43,9 @@ flatpickr (dateInput, options);
 function changeTimerValue(){
 
   let timer = setInterval(()=> {
-    let countdown = new Date (dateInput.value) - new Date();
+    let countdown = new Date () - new Date();
     startBtn.disabled = true;
-    console.log(countdown)
+    
     if(countdown>=0){
       let timerData = convertMs(countdown);
       refs.daysRefs.textContent = timerData.days;
