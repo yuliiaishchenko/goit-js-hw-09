@@ -73,3 +73,16 @@ label.amount{
   font-size: larger;
   font-style: oblique;
 }
+
+
+.label{
+  color: darkslateblue;
+  font-size: larger;
+  font-style: italic;
+}
+
+.value{
+  color: darkslateblue;
+  font-size: larger;
+  font-style: italic;
+}
