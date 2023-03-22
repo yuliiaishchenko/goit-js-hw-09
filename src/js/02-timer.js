@@ -41,16 +41,18 @@ refs.startBtn.addEventListener('click', onBtnStart);
 
 
   function timeDifferentDate(selectedDates){
-    const currentDates = Date.now();
-      if (selectedDates < currentDates){
+    const currentDate = Date.now();
+      if (selectedDates < currentDate){
        refs.startBtn.setAttribute('disabled', true);
        return  Notify.failure("Please choose a date in the future");
       } else {
-         refs.startBtn.removeAttribute('disabled');
+         
        
-             timeDifferent = selectedDates[0].getTime()- currentDates;
+             timeDifferent = selectedDates[0].getTime()- currentDate;
              formatDate = convertMs(timeDifferent);
-         updateTimer(formatDate);
+             renderDate(formatDate);
+             refs.startBtn.removeAttribute('disabled');
+         
   }}
 
   function startTimer() {
@@ -61,7 +63,7 @@ timeDifferent <=1000;
 
 if(refs.secondsRefs.textContent <=0 && refs.minutesRefs.textContent<=0){
   Notify.success('Time is over!');
-  clearInterval(intervalId)
+  clearInterval(timerId)
 }
 else{
 formatDate = convertMs(timeDifferent);
