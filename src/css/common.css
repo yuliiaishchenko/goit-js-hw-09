@@ -86,3 +86,13 @@ label.amount{
   font-size: larger;
   font-style: italic;
 }
+.promise_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  background-color: thistle;
+  border-radius: 28px;
+  font-size: inherit;
+  margin-top: 30px;
+}
