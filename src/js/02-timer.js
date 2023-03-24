@@ -6,6 +6,7 @@ document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-16
 
 const startBtn = document.querySelector("button[data-start]");
 startBtn.disabled = true;
+startBtn.addEventListener('click', changeTimerValue);
 
 const dateInput = document.querySelector("input#datetime-picker");
 
@@ -27,14 +28,12 @@ const options = {
     minuteIncrement: 1,
     onClose(selectedDates) {
    
-if(selectedDates[0]< Date.now()){
+if(selectedDates[0].getTime()< Date.now()){
   startBtn.disabled = true;
   Notify.failure("Please choose a date in the future");
 } else{
   startBtn.disabled = false;
-  startBtn.addEventListener('click', ()=>{
-    changeTimerValue(dateInput.value)
-  })
+  selectedDate = selectedDates[0].getTime();
 }},
     };
     
@@ -42,20 +41,29 @@ flatpickr (dateInput, options);
 
 function changeTimerValue(){
 
-  let timer = setInterval(()=> {
-    let countdown = new Date(dateInput.value) - Date.now();
-    startBtn.disabled = true;
-    
-    if(countdown >=0){
-      createMarkup = convertMs(countdown);
-     ;
-    }
-    else{
-      Notify.success('Time is over!')
-      clearInterval(timer);
-    }
-  }, 1000);
+  timer.start();
 }
+
+  let timer = {
+    start(){
+      intervalId = setInterval(()=> 
+    {let countdown = selectedDate - Date.now();
+   createMarkup(convertMs(countdown));
+   startBtn.disabled = true;
+   dateInput.disabled = true;
+    
+   
+   if(countdown <=1000){
+      Notify.success('Time is over!')
+    }
+
+  }, 1000);},
+stop(){
+  startBtn.disabled = true;
+  dateInput.disabled = false;
+  clearInterval(intervalId);
+  return;}};
+
 
 function createMarkup({days, hours, minutes, seconds}){
   refs.daysRefs.textContent = addLeadingZero(days);
