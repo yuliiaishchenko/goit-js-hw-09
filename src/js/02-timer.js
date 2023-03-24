@@ -43,15 +43,12 @@ flatpickr (dateInput, options);
 function changeTimerValue(){
 
   let timer = setInterval(()=> {
-    let countdown = new Date (dateInput.value) - Date.now();
+    let countdown = new Date(dateInput.value) - Date.now();
     startBtn.disabled = true;
     
-    if(countdown>=0){
+    if(countdown >=0){
       let timerData = convertMs(countdown);
-      refs.daysRefs.textContent = timerData.days;
-      refs.hoursRefs.textContent = timerData.hours;
-      refs.minutesRefs.textContent = timerData.minutes;
-      refs.secondsRefs.textContent = timerData.seconds;
+     ;
     }
     else{
       Notify.success('Time is over!')
@@ -60,6 +57,12 @@ function changeTimerValue(){
   }, 1000);
 }
 
+function createMarkup({days, hours, minutes, seconds}){
+  refs.daysRefs.textContent = addLeadingZero(days);
+  refs.hoursRefs.textContent = addLeadingZero(hours);
+  refs.minutesRefs.textContent = addLeadingZero(minutes);
+  refs.secondsRefs.textContent = addLeadingZero(seconds)
+}
   function convertMs(ms) {
     // Number of milliseconds per unit of time
     const second = 1000;
