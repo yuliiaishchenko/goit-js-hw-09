@@ -16,7 +16,7 @@ const refs = {
     secondsRefs: document.querySelector("[data-seconds]"),
 };
 
-let timerId = null;
+let timerData = null;
 
 
 
@@ -47,7 +47,7 @@ function changeTimerValue(){
     startBtn.disabled = true;
     
     if(countdown >=0){
-      let timerData = convertMs(countdown);
+      createMarkup = convertMs(countdown);
      ;
     }
     else{
