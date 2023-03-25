@@ -40,7 +40,7 @@ img {
 }
 button{
   display: inline-block;
-  width: 50px;
+  width: 150px;
   height: 50px;
   border-radius: 50%;
   border: none;
@@ -95,4 +95,5 @@ label.amount{
   border-radius: 28px;
   font-size: inherit;
   margin-top: 30px;
+  width: 150px;
 }
