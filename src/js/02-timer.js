@@ -53,7 +53,7 @@ function changeTimerValue(){
    dateInput.disabled = true;
     
    
-   if(countdown === 0){
+   if(countdown <= 0){
     
       Notify.success('Time is over!')
       startBtn.disabled = true;
