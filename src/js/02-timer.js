@@ -33,7 +33,7 @@ if(selectedDates[0].getTime()< Date.now()){
   Notify.failure("Please choose a date in the future");
 } else{
   startBtn.disabled = false;
-  selectedDate = selectedDates[0].getTime();
+  const selectedDate = selectedDates[0].getTime();
 }},
     };
     
