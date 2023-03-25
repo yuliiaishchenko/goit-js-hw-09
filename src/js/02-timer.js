@@ -47,7 +47,7 @@ function changeTimerValue(){
   let timer = {
     start(){
       intervalId = setInterval(()=> 
-    {let countdown = selectedDate - Date.now();
+    {const countdown = selectedDate - Date.now();
    createMarkup(convertMs(countdown));
    startBtn.disabled = true;
    dateInput.disabled = true;
