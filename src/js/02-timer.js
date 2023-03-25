@@ -55,6 +55,7 @@ function changeTimerValue(){
    
    if(countdown =1000){
       Notify.success('Time is over!')
+      clearInterval(intervalId);
     }
 
   }, 1000);},
