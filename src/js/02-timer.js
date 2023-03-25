@@ -18,7 +18,7 @@ const refs = {
 };
 
 let intervalId = null;
-
+let selectedDate = null;
 
 
 const options = {
@@ -33,7 +33,7 @@ if(selectedDates[0].getTime()< Date.now()){
   Notify.failure("Please choose a date in the future");
 } else{
   startBtn.disabled = false;
-  const selectedDate = selectedDates[0].getTime();
+  selectedDate = selectedDates[0].getTime();
 }},
     };
     
