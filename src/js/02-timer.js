@@ -54,17 +54,16 @@ function changeTimerValue(){
     
    
    if(countdown <=0){
-    this.stop();
+    
       Notify.success('Time is over!')
-      
+      startBtn.disabled = true;
+  dateInput.disabled = false;
+  clearInterval(intervalId);
+  return;
     }
 
   }, 1000);},
-stop(){
-  startBtn.disabled = true;
-  dateInput.disabled = false;
-  clearInterval(intervalId);
-  return;}};
+};
 
 
 function createMarkup({days, hours, minutes, seconds}){
