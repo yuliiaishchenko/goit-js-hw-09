@@ -17,7 +17,7 @@ const refs = {
     secondsRefs: document.querySelector("[data-seconds]"),
 };
 
-let timerData = null;
+let intervalId = null;
 
 
 
