@@ -53,7 +53,7 @@ function changeTimerValue(){
    dateInput.disabled = true;
     
    
-   if(intervalId <=1000){
+   if(intervalId <=0){
     this.stop();
       Notify.success('Time is over!')
       
