@@ -4,7 +4,7 @@ import { Notify } from "notiflix";
 
 document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1668293497947-be08490a3b71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDUzfEZ6bzN6dU9ITjZ3fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60')"
 
-const startBtn = document.querySelector("button[data-start]");
+const startBtn = document.querySelector('button[data-start]');
 startBtn.disabled = true;
 startBtn.addEventListener('click', changeTimerValue);
 
@@ -53,9 +53,10 @@ function changeTimerValue(){
    dateInput.disabled = true;
     
    
-   if(countdown =1000){
+   if(countdown <=1000){
+    this.stop();
       Notify.success('Time is over!')
-      clearInterval(intervalId);
+      
     }
 
   }, 1000);},
